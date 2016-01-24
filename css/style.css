@@ -44,3 +44,27 @@ section {
 .active-link {
   font-weight: bold;
 }
+.mdl-card__media {
+  background-size: cover;
+}
+section > .mdl-card {
+  min-height: 84vh;
+}
+#dashboard .mdl-card__media {
+  background-image: url('../resources/images/header-bg-mixer.jpg');
+}
+#training .mdl-card__media {
+  background-image: url('../resources/images/header-bg-mixer.jpg');
+}
+#challenges .mdl-card__media {
+  background-image: url('../resources/images/header-bg-mixer.jpg');
+}
+#settings .mdl-card__media {
+  background-image: url('../resources/images/header-bg-mixer.jpg');
+}
+#credits .mdl-card__media {
+  background-image: url('../resources/images/header-bg-mixer.jpg');
+}
+#about .mdl-card__media {
+  background-image: url('../resources/images/header-bg-mixer.jpg');
+}
