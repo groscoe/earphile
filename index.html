@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 
+  <!-- wavesurfer.js for waveform visualizations-->
+  <script src="js/wavesurfer.min.js"></script>
+
   <link rel="stylesheet" href="css/style.css">
   <title>Earphile - Ear training for audio engineers</title>
 </head>
@@ -28,9 +31,9 @@
           <i class="material-icons">more_vert</i>
         </button>
         <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="sec_menu">
-          <li class="mdl-menu__item">Settings</li>
-          <li class="mdl-menu__item">Credits</li>
-          <li class="mdl-menu__item">About</li>
+          <li class="mdl-menu__item" onclick="switch_section(this, 'settings')">Settings</li>
+          <li class="mdl-menu__item" onclick="switch_section(this, 'credits')">Credits</li>
+          <li class="mdl-menu__item" onclick="switch_section(this, 'about')">About</li>
         </ul>
       </div>
     </header>
@@ -38,82 +41,212 @@
     <!-- Side drawer -->
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title">Menu</span>
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Dashboard</a>
-        <a class="mdl-navigation__link" href="">Training</a>
-        <a class="mdl-navigation__link" href="">Challenges</a>
-        <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation mdl-js-ripple-effect">
+        <a class="mdl-navigation__link active-link" onclick="switch_section(this, 'dashboard')" href="#">Dashboard</a>
+        <a class="mdl-navigation__link" onclick="switch_section(this, 'training')" href="#">Training</a>
+        <a class="mdl-navigation__link" onclick="switch_section(this, 'challenges')" href="#">Challenges</a>
       </nav>
     </div>
 
     <main class="mdl-layout__content">
       <!-- Dashboard -->
-      <div id="dashboard" class="non-scrollable">
-        <div class="mdl-grid">
-          <!-- Filters card -->
-          <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
-            <div class="mdl-card__media">
-              <img src="resources/images/sonic-wave.jpg">
+      <div class="sections-container">
+        <section id="dashboard" class="active-section">
+          <h1>Dashboard</h1>
+          <div class="mdl-grid">
+            <!-- Filters card -->
+            <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
+              <div class="mdl-card__media">
+                <img src="resources/images/sonic-wave.jpg">
+              </div>
+              <div class="mdl-card__title">
+                <h1 class="mdl-card__title-text">Filtering</h1>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <p>Learn to hear the different kinds of filters and their settings.</p>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+              </div>
             </div>
-            <div class="mdl-card__title">
-              <h1 class="mdl-card__title-text">Filtering</h1>
+            <!-- EQ card -->
+            <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
+              <div class="mdl-card__media">
+                <img src="resources/images/sonic-wave.jpg">
+              </div>
+              <div class="mdl-card__title">
+                <h1 class="mdl-card__title-text">EQ</h1>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <p>Learn to hear the different kinds of filters and their settings.</p>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+              </div>
             </div>
-            <div class="mdl-card__supporting-text">
-              <p>Learn to hear the different kinds of filters and their settings.</p>
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
-            </div>
-          </div>
-          <!-- EQ card -->
-          <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
-            <div class="mdl-card__media">
-              <img src="resources/images/sonic-wave.jpg">
-            </div>
-            <div class="mdl-card__title">
-              <h1 class="mdl-card__title-text">EQ</h1>
-            </div>
-            <div class="mdl-card__supporting-text">
-              <p>Learn to hear the different kinds of filters and their settings.</p>
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
-            </div>
-          </div>
 
-          <!-- Dynamics card -->
-          <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
-            <div class="mdl-card__media">
-              <img src="resources/images/sonic-wave.jpg">
+            <!-- Dynamics card -->
+            <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
+              <div class="mdl-card__media">
+                <img src="resources/images/sonic-wave.jpg">
+              </div>
+              <div class="mdl-card__title">
+                <h1 class="mdl-card__title-text">Dynamics</h1>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <p>Learn to hear the different kinds of filters and their settings.</p>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+              </div>
             </div>
-            <div class="mdl-card__title">
-              <h1 class="mdl-card__title-text">Dynamics</h1>
+
+            <!-- Effects card -->
+            <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
+              <div class="mdl-card__media">
+                <img src="resources/images/sonic-wave.jpg">
+              </div>
+              <div class="mdl-card__title">
+                <h1 class="mdl-card__title-text">Effects</h1>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <p>Learn to hear the different kinds of filters and their settings.</p>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+              </div>
             </div>
-            <div class="mdl-card__supporting-text">
-              <p>Learn to hear the different kinds of filters and their settings.</p>
+            <!-- Effects card -->
+            <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
+              <div class="mdl-card__media">
+                <img src="resources/images/sonic-wave.jpg">
+              </div>
+              <div class="mdl-card__title">
+                <h1 class="mdl-card__title-text">Effects</h1>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <p>Learn to hear the different kinds of filters and their settings.</p>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+              </div>
             </div>
-            <div class="mdl-card__actions mdl-card--border">
-              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+            <!-- Effects card -->
+            <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
+              <div class="mdl-card__media">
+                <img src="resources/images/sonic-wave.jpg">
+              </div>
+              <div class="mdl-card__title">
+                <h1 class="mdl-card__title-text">Effects</h1>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <p>Learn to hear the different kinds of filters and their settings.</p>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+              </div>
+            </div>
+            <!-- Effects card -->
+            <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
+              <div class="mdl-card__media">
+                <img src="resources/images/sonic-wave.jpg">
+              </div>
+              <div class="mdl-card__title">
+                <h1 class="mdl-card__title-text">Effects</h1>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <p>Learn to hear the different kinds of filters and their settings.</p>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+              </div>
+            </div>
+            <!-- Effects card -->
+            <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
+              <div class="mdl-card__media">
+                <img src="resources/images/sonic-wave.jpg">
+              </div>
+              <div class="mdl-card__title">
+                <h1 class="mdl-card__title-text">Effects</h1>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <p>Learn to hear the different kinds of filters and their settings.</p>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+              </div>
+            </div>
+
+            <!-- Effects card -->
+            <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
+              <div class="mdl-card__media">
+                <img src="resources/images/sonic-wave.jpg">
+              </div>
+              <div class="mdl-card__title">
+                <h1 class="mdl-card__title-text">Effects</h1>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <p>Learn to hear the different kinds of filters and their settings.</p>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+              </div>
+            </div>
+            <!-- Effects card -->
+            <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
+              <div class="mdl-card__media">
+                <img src="resources/images/sonic-wave.jpg">
+              </div>
+              <div class="mdl-card__title">
+                <h1 class="mdl-card__title-text">Effects</h1>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <p>Learn to hear the different kinds of filters and their settings.</p>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+              </div>
+            </div>
+            <!-- Effects card -->
+            <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
+              <div class="mdl-card__media">
+                <img src="resources/images/sonic-wave.jpg">
+              </div>
+              <div class="mdl-card__title">
+                <h1 class="mdl-card__title-text">Effects</h1>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <p>Learn to hear the different kinds of filters and their settings.</p>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+              </div>
             </div>
           </div>
+        </section>
 
-          <!-- Effects card -->
-          <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
-            <div class="mdl-card__media">
-              <img src="resources/images/sonic-wave.jpg">
-            </div>
-            <div class="mdl-card__title">
-              <h1 class="mdl-card__title-text">Effects</h1>
-            </div>
-            <div class="mdl-card__supporting-text">
-              <p>Learn to hear the different kinds of filters and their settings.</p>
-            </div>
-            <div class="mdl-card__actions mdl-card--border">
-              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
-            </div>
-          </div>
+        <!-- Training area -->
+        <section id="training">
+          <h1>Training</h1>
+        </section>
 
-        </div>
+        <!-- Challenges -->
+        <section id="challenges">
+          <h1>Challenges</h1>
+        </section>
+
+        <!-- Settings -->
+        <section id="settings">
+          <h1>Settings</h1>
+        </section>
+        <!-- Credits -->
+        <section id="credits">
+          <h1>Credits</h1>
+        </section>
+        <!-- About -->
+        <section id="about">
+          <h1>About</h1>
+        </section>
       </div>
     </main>
 
@@ -124,14 +257,9 @@
     </footer>
   </div>
 
+  <script src="js/main.js"></script>
 
-  <!-- loading animation -->
-  <script>
-    document.getElementsByTagName('html')[0].classList.remove('loading');
-
-  </script>
-
-  <!-- google analytics code -->
+  <!-- Google analytics code -->
   <script>
     (function(i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;

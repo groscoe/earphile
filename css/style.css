@@ -35,3 +35,15 @@ html.loading body {
 .mdl-card__media > img {
   max-width: 100%;
 }
+
+/* Section pages */
+
+section {
+  display: none;
+}
+section.active-section {
+  display: block;
+}
+.active-link {
+  font-weight: bold;
+}
