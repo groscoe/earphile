@@ -1,25 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html class="loading">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="canonical" href="https://groscoe.github.io/earphile">
+
+  <!-- Material Design Lite -->
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.blue_grey-deep_purple.min.css">
+  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+
+  <link rel="stylesheet" href="css/style.css">
   <title>Earphile - Ear training for audio engineers</title>
 </head>
+
 <body>
-<h1>Earphile</h1>
-<p>Ear training for audio engineers.</p>
+  <!-- Toolbar/Header -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout-title">earphile</span>
+        <div class="mdl-layout-spacer"></div>
+        <button id="sec_menu" class="mdl-button mdl-js-button mdl-button--icon">
+          <i class="material-icons">more_vert</i>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="sec_menu">
+          <li class="mdl-menu__item">Settings</li>
+          <li class="mdl-menu__item">Credits</li>
+          <li class="mdl-menu__item">About</li>
+        </ul>
+      </div>
+    </header>
 
-<!-- google analytics code -->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <!-- Side drawer -->
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Menu</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Dashboard</a>
+        <a class="mdl-navigation__link" href="">Training</a>
+        <a class="mdl-navigation__link" href="">Challenges</a>
+        <div class="mdl-layout-spacer"></div>
+      </nav>
+    </div>
 
-  ga('create', 'UA-72797500-1', 'auto');
-  ga('send', 'pageview');
+    <main class="mdl-layout__content">
+      <!-- Dashboard -->
+      <div id="dashboard" class="non-scrollable">
+        <div class="mdl-grid">
+          <!-- Filters card -->
+          <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
+            <div class="mdl-card__media">
+              <img src="resources/images/sonic-wave.jpg">
+            </div>
+            <div class="mdl-card__title">
+              <h1 class="mdl-card__title-text">Filtering</h1>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <p>Learn to hear the different kinds of filters and their settings.</p>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+            </div>
+          </div>
+          <!-- EQ card -->
+          <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
+            <div class="mdl-card__media">
+              <img src="resources/images/sonic-wave.jpg">
+            </div>
+            <div class="mdl-card__title">
+              <h1 class="mdl-card__title-text">EQ</h1>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <p>Learn to hear the different kinds of filters and their settings.</p>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+            </div>
+          </div>
 
-</script>
+          <!-- Dynamics card -->
+          <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
+            <div class="mdl-card__media">
+              <img src="resources/images/sonic-wave.jpg">
+            </div>
+            <div class="mdl-card__title">
+              <h1 class="mdl-card__title-text">Dynamics</h1>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <p>Learn to hear the different kinds of filters and their settings.</p>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+            </div>
+          </div>
+
+          <!-- Effects card -->
+          <div class="mdl-card mdl-cell mdl-cell--3-col mdl-cell--3-col-tablet mdl-cell--6-col-phone mdl-shadow--2dp">
+            <div class="mdl-card__media">
+              <img src="resources/images/sonic-wave.jpg">
+            </div>
+            <div class="mdl-card__title">
+              <h1 class="mdl-card__title-text">Effects</h1>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <p>Learn to hear the different kinds of filters and their settings.</p>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="#">Play!</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+
+    <footer class="mdl-mini-footer">
+      <div class="mdl-layout-spacer"></div>
+      <div class="mdl-mini-footer__right-section">
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- loading animation -->
+  <script>
+    document.getElementsByTagName('html')[0].classList.remove('loading');
+
+  </script>
+
+  <!-- google analytics code -->
+  <script>
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-72797500-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
 </body>
+
 </html>
