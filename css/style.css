@@ -41,9 +41,6 @@ html.loading body {
 section {
   display: none;
 }
-section.active-section {
-  display: block;
-}
 .active-link {
   font-weight: bold;
 }

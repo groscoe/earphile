@@ -10,10 +10,13 @@
   <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.blue_grey-deep_purple.min.css">
   <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 
   <!-- wavesurfer.js for waveform visualizations-->
   <script src="js/wavesurfer.min.js"></script>
+
+  <!-- velocity.js for animations -->
+  <script src="js/velocity.min.js"></script>
 
   <link rel="stylesheet" href="css/style.css">
   <title>Earphile - Ear training for audio engineers</title>
@@ -41,7 +44,7 @@
     <!-- Side drawer -->
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title">Menu</span>
-      <nav class="mdl-navigation mdl-js-ripple-effect">
+      <nav class="mdl-navigation">
         <a class="mdl-navigation__link active-link" onclick="switch_section(this, 'dashboard')" href="#">Dashboard</a>
         <a class="mdl-navigation__link" onclick="switch_section(this, 'training')" href="#">Training</a>
         <a class="mdl-navigation__link" onclick="switch_section(this, 'challenges')" href="#">Challenges</a>
@@ -144,10 +147,10 @@
       </div>
     </main>
 
+    <!-- footer -->
     <footer class="mdl-mini-footer">
       <div class="mdl-layout-spacer"></div>
-      <div class="mdl-mini-footer__right-section">
-      </div>
+      <div class="mdl-mini-footer__right-section"></div>
     </footer>
   </div>
 
